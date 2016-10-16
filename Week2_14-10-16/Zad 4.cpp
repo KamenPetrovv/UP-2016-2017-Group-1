@@ -1,27 +1,22 @@
-// Zad 4.cpp : Defines the entry point for the console application.
-//
+/* Input: year
+	Output: is it a leap year?
+*/
 
-#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
 	int year;
+
+	cout << "Year: ";
 	cin >> year;
-	bool isLeapYear = (year % 4 == 0 
-			&&
-		(
-			(
-				(year % 100 == 0) 
-				&& 
-				(year % 400 == 0)
-			) 
-			|| 
-			(year % 100 != 0)
-		)
-		
-	);
+
+	//Solution1 below:
+	bool isLeapYear = ( (year%400 == 0) || (year%100 != 0 && year%4 == 0) );
+	cout << isLeapYear << endl; //will output "0" (false) or "1" (true)
+
+	//Solution2 below:
 
 	if (year % 4 == 0)
 	{
@@ -45,6 +40,7 @@ int main()
 	{
 		cout << "Not a leap year." << endl;
 	}
+
     return 0;
 }
 
