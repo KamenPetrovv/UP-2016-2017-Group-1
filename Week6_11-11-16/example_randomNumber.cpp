@@ -9,7 +9,7 @@ int randomNumber(int a, int b) ///return a random integer in the range [a,b]
 
   int r;
 
-  r = rand() % b + a; /** generate secret number between a and b: */
+  r = rand() % (b-a+1) + a; /** generate secret number between a and b: */
 
   return r;
 }
