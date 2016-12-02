@@ -11,36 +11,37 @@ int main()
     {
         cin >> numbers[i];
     }
+
     int sumSoFar = numbers[0];
-    int biggestSoFar = 1;
-    int biggest = 1;
+    int largestSoFar = 1;
+    int largest = 1;
     int biggestSum = 0;
     for(int i = 1; i < n;i++)
     {
-    cout << sumSoFar<<endl;
+
         if(numbers[i - 1] <= numbers[i])
         {
-            biggestSoFar ++;
+            largestSoFar ++;
             sumSoFar += numbers[i];
         }
         else
         {
-            if(biggestSoFar > biggest)
+            if(largestSoFar > largest)
             {
-                biggest = biggestSoFar;
+                largest = largestSoFar;
                 biggestSum = sumSoFar;
             }
-            biggestSoFar = 1;
+            largestSoFar = 1;
             sumSoFar = numbers[i];
         }
     }
 
-    if(biggestSoFar > biggest)
+    if(largestSoFar > largest)
     {
-        biggest = biggestSoFar;
+        largest = largestSoFar;
         biggestSum = sumSoFar;
     }
-    cout << "Length : " << biggest << endl;
+    cout << "Length : " << largest << endl;
     cout << "Sum : " << biggestSum<< endl;
 
 
