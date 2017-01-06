@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-/// arr, elemCount and size are public variables in order to be easily accessible
+/// arr, elemCount and size are global variables in order to be easily accessible
 /// generally not a good practice
 int* arr;
 int elemCount, size;
@@ -73,7 +73,7 @@ void resizeArr() {
         *(newStorage + i) = *(arr + i);
 
     delete[] arr; /// free the memory previously allocated for our array
-    arr = newStorage; /// make array point to the new storage in memory
+    arr = newStorage; /// make arr point to the new storage in memory
     size *= 2;
 }
 
@@ -119,7 +119,7 @@ void insertElement() {
         elemCount++;
 
         for(int i = elemCount - 1; i > index; i--)
-            swapElements(arr + i, arr + i - 1);
+            swapElements(arr + i - 1, arr + i);
     }
 
     else
